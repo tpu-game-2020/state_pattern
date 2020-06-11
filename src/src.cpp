@@ -1,25 +1,29 @@
 ﻿#include <iostream>
 #include <thread>
+#include "State.cpp"
 
 int main()
 {
-repeat:
-    std::cout << "credit\n";
+	State* state_;
 
-    std::this_thread::sleep_for(std::chrono::seconds(3));// 3 秒待つ
+	CreditState credit;
+	TitleState title;
+	OpeningState opening;
+	DemoState demo;
 
-    std::cout << "title\n";
+	while (true)
+	{		
+		state_ = &credit;
+		state_->Scene();
 
-    std::this_thread::sleep_for(std::chrono::seconds(3));// 3 秒待つ
+		state_ = &title;
+		state_->Scene();
 
-    std::cout << "opening\n";
+		state_ = &opening;
+		state_->Scene();
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));// 5 秒待つ
-
-    std::cout << "demo\n";
-
-    std::this_thread::sleep_for(std::chrono::seconds(5));// 5 秒待つ
-    
-    goto repeat;
+		state_ = &demo;
+		state_->Scene();
+	}
 }
 
