@@ -17,6 +17,7 @@ public:
     std::this_thread::sleep_for(std::chrono::seconds(3));// 3 秒待つ
     }
 };
+
 class TitleState :public State
 {
 public:
@@ -27,6 +28,7 @@ public:
     std::this_thread::sleep_for(std::chrono::seconds(3));// 3 秒待つ
     }
 };
+
 class OpeningState :public State
 {
 public:
@@ -37,6 +39,7 @@ public:
     std::this_thread::sleep_for(std::chrono::seconds(5));// 5 秒待つ
     }
 };
+
 class DemoState :public State
 {
 public:
